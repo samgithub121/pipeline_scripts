@@ -1,3 +1,5 @@
+def awesomeVersion = 'VERISION_NUMBER'
+
 pipeline {
     agent any 
     stages {
@@ -15,7 +17,7 @@ pipeline {
         }
         stage('Test') { 
             steps {
-                echo "Test Stage"
+                echo "Test Stage : ${awesomeVersion}"
             }
         }
         stage('Deploy') { 
