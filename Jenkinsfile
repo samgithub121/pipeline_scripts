@@ -25,7 +25,7 @@ pipeline {
         stage('Deploy') { 
             steps {
                 script{
-                    if (${a} > ${b}){
+                    if (${a} == ${b}){
                         echo "${a} is greater than ${b}"
                     } else {
                         echo "${a} is not greater than ${b}"
