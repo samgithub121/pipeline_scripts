@@ -26,8 +26,7 @@ pipeline {
             steps {
                 if (${a} > ${b}){
                     echo "${a} is greater than ${b}"
-                }
-                else{
+                } else {
                     echo "${a} is not greater than ${b}"
                 }
             }
