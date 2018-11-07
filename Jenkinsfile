@@ -1,6 +1,7 @@
 def awesomeVersion = 'VERISION_NUMBER'
 def a = 5
 def b = 2
+def value_list = ['a','b','c']
 
 pipeline {
     agent any 
@@ -30,6 +31,13 @@ pipeline {
                     } else {
                         echo "${a} is not greater than ${b}"
                     }
+                }
+            }
+        }
+        stage('Execute') { 
+            steps {
+                for (int i = 0; i < value_list.size(); i++) {
+                        echo "Hello ${value_list[i]}"
                 }
             }
         }
