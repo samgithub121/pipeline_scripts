@@ -24,9 +24,11 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
+                script{
                     when ("${a}" > "${b}"){
                         echo "${a} is greater than ${b}"
                     } 
+                }
             }
         }
     }
