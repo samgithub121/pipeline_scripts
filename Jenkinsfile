@@ -3,6 +3,10 @@ def a = 5
 def b = 2
 def value_list = ['a','b','c']
 
+def abc(){
+    echo "This is to test a function..." 
+}
+
 pipeline {
     agent any 
     stages {
@@ -41,6 +45,11 @@ pipeline {
                             echo "Hello ${value_list[i]}"
                     }
                }
+            }
+        }
+        stage('Testing Function') { 
+            steps {
+                 abc()
             }
         }
     }
