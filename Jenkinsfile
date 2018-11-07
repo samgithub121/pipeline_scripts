@@ -1,4 +1,6 @@
 def awesomeVersion = 'VERISION_NUMBER'
+def a = 5
+def b = 2
 
 pipeline {
     agent any 
@@ -22,7 +24,12 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                echo "Deploy Stage"
+                if (${a} > ${b}){
+                    echo "${a} is greater than ${b}"
+                }
+                else{
+                    echo "${a} is not greater than ${b}"
+                }
             }
         }
     }
