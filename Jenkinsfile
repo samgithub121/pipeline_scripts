@@ -36,9 +36,11 @@ pipeline {
         }
         stage('Execute') { 
             steps {
-                for (int i = 0; i < value_list.size(); i++) {
-                        echo "Hello ${value_list[i]}"
-                }
+               script{
+                    for (int i = 0; i < value_list.size(); i++) {
+                            echo "Hello ${value_list[i]}"
+                    }
+               }
             }
         }
     }
