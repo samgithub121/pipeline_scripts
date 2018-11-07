@@ -27,7 +27,9 @@ pipeline {
                 script{
                     if ("${a}" > "${b}"){
                         echo "${a} is greater than ${b}"
-                    } 
+                    } else {
+                        echo "${a} is not greater than ${b}"
+                    }
                 }
             }
         }
