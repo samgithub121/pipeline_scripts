@@ -24,10 +24,12 @@ pipeline {
         }
         stage('Deploy') { 
             steps {
-                if (${a} > ${b}){
-                    echo "${a} is greater than ${b}"
-                } else {
-                    echo "${a} is not greater than ${b}"
+                script{
+                    if (${a} > ${b}){
+                        echo "${a} is greater than ${b}"
+                    } else {
+                        echo "${a} is not greater than ${b}"
+                    }
                 }
             }
         }
