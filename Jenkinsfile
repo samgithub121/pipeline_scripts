@@ -27,6 +27,11 @@ pipeline {
                 echo "Test Stage : ${awesomeVersion}"
             }
         }
+        post{
+            allways {
+                echo "I will always say hello..."
+            }
+        }
         stage('Deploy') { 
             steps {
                 script{
