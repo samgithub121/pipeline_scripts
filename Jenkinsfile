@@ -18,6 +18,9 @@ pipeline {
                 },
                 b : {
                     echo "Build Parallel 2"    
+                },
+                c : {
+                    echo "Build Parallel 3"    
                 }
             )
           }
