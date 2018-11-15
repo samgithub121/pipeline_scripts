@@ -1,9 +1,11 @@
 pipeline {
     agent none 
     stages {
-         stage('Test') { 
+          stage('Example Test') {
+            agent { docker 'openjdk:8-jre' } 
             steps {
-                echo "Test Stage ------------"
+                echo 'Hello, JDK'
+                sh 'java -version'
             }
         }
     }
