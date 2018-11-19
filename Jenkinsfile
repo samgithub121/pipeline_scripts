@@ -1,11 +1,9 @@
 pipeline {
-    agent { dockerfile true }
+    agent any 
     stages {
         stage('Test') {
             steps {
                 echo "Testing the docker file....."
-                sh 'node --version'
-                sh 'svn --version'
             }
         }
     }
