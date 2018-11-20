@@ -12,7 +12,9 @@ pipeline {
             steps {
                 echo "Inside building image"
             }
-            docker.build("getintodevops/hellonode")
+            script{
+                docker.build("getintodevops/hellonode")
+            }
         }
        stage('Test image') {
         /* Ideally, we would run a test framework against our image.
