@@ -1,6 +1,5 @@
 pipeline {
     agent any
- node {
     def app
     stages {
         stage('Build image') {
@@ -22,5 +21,4 @@ pipeline {
             }
         }
     }
- }
 }
