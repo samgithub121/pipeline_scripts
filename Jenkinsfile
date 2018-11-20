@@ -11,9 +11,9 @@ pipeline {
          * docker build on the command line */
             steps {
                 echo "Inside building image"
-            }
-            script{
-                docker.build("getintodevops/hellonode")
+                script{
+                    docker.build("getintodevops/hellonode")
+                }
             }
         }
        stage('Test image') {
