@@ -4,11 +4,6 @@ FROM ubuntu
 # set maintainer
 LABEL maintainer "sammathewkonni@gmail.com"
 
-# environment variables
-ENV http_proxy "http://7000016584:776081040510.sony@43.88.64.10:8080"
-ENV https_proxy "https://7000016584:776081040510.sony@43.88.64.10:8080"
-ENV no_proxy "127.0.0.1,localhost,0.0.0.0,43.0.0.1/8,cswqm.scei.sony.co.jp,csw.jp.sie.sony.com"
-
 # time zone settings
 ENV TZ "Asia/Tokyo"
 RUN ln -snf /sr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
