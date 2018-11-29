@@ -37,7 +37,7 @@ pipeline {
                 echo "Stage to perform home screen capture"
             }
         }
-       stage('Run Test'){
+       stages('Run Test'){
             steps {
                 parallel{
                     stage("Run CTS Test") {
