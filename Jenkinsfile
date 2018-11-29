@@ -1,20 +1,25 @@
 def trigger_test_boards(){
-    parallel{
-          stage("Trigger - Board 1") {
-               steps{
-                  echo "Run Test Board-1"
-               }
-           }
-           stage("Trigger - Board 2") {
-                steps {
-                    echo "Run Test Board-2"
-                }   
+    pipeline {
+        agent none
+        stage('Trigger on Board'){
+            parallel{
+                  stage("Trigger - Board 1") {
+                       steps{
+                          echo "Run Test Board-1"
+                       }
+                   }
+                   stage("Trigger - Board 2") {
+                        steps {
+                            echo "Run Test Board-2"
+                        }   
+                    }
+                    stage("Trigger - Board 3") {
+                         steps {
+                              echo "Run Test Board 3"
+                         }   
+                    }   
             }
-            stage("Trigger - Board 3") {
-                 steps {
-                      echo "Run Test Board 3"
-                 }   
-            }   
+        }
     }
 }
 
