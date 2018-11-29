@@ -32,7 +32,9 @@ pipeline {
             }
         }
        stage('Home Screen Capture') {
-            agent any
+            agent { 
+                label 'ubuntu'
+            }
             steps {
                 echo "Stage to perform home screen capture"
             }
