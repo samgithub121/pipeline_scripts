@@ -36,5 +36,10 @@ pipeline {
                 echo "Stage to run the test[CTS/GTS/CTS_V/CTS_GSI/STS/VTS]"
             }
         }
+       stage('Grab & Upload Results'){
+            steps {
+                echo "Stage to Grab & Upload Results"
+            }
+        }
     }
 }
