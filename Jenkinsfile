@@ -37,6 +37,7 @@ pipeline {
                 echo "Stage to perform home screen capture"
             }
         }
+    }
        stages('Run Test'){
             steps {
                 parallel{
@@ -59,11 +60,4 @@ pipeline {
                 }
             }
         }
-       stage('Grab & Upload Results'){
-            agent any
-            steps {
-                echo "Stage to Grab & Upload Results"
-            }
-        }
-    }
 }
