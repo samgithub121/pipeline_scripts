@@ -38,12 +38,12 @@ pipeline {
             }
         }
        stage('Run Test'){
+            agent {
+                docker { image 'ubuntu' }
+            }
             steps {
                 parallel(
                     a : {
-                        agent {
-                            docker { image 'ubuntu' }
-                        }
                          echo "Build Parallel 1"
                     },
                     b : {
