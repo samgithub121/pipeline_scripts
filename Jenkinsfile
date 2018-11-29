@@ -38,7 +38,6 @@ pipeline {
             }
         }
        stage('Run Test'){
-            agent any
             steps {
                 parallel{
                     stage("Run CTS Test") {
