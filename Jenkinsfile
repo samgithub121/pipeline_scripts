@@ -37,9 +37,7 @@ pipeline {
                 echo "Stage to perform home screen capture"
             }
         }
-    }
-       stages('Run Test'){
-            steps {
+       stage('Run Test'){
                 parallel{
                     stage("Run CTS Test") {
                         agent {
@@ -57,7 +55,7 @@ pipeline {
                           echo "Run the GTS Test here...."
                         }   
                     }
-                }
-            }
+               }
         }
+    }
 }
