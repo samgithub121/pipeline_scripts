@@ -42,9 +42,6 @@ pipeline {
             steps {
                 parallel(
                     a : {
-                        agent { 
-                            label 'ubuntu'
-                        }
                          echo "Build Parallel 1"
                     },
                     b : {
