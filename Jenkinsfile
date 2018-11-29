@@ -55,6 +55,30 @@ pipeline {
                              echo "Run the GTS Test here...."
                         }   
                     }
+                    stage("Run CTS_V Test") {
+                        agent {
+                             docker {image 'ubuntu'}
+                        }
+                        steps {
+                             echo "Run the CTS_V Test here..."
+                        }   
+                    }
+                    stage("Run STS") {
+                        agent {
+                             docker {image 'ubuntu'}
+                        }
+                        steps {
+                             echo "Run the STS Test here"
+                        }   
+                    }
+                    stage("Run VTS") {
+                        agent {
+                             docker {image 'ubuntu'}
+                        }
+                        steps {
+                             echo "Run the STS Test here"
+                        }   
+                    }
                }
         }
     }
