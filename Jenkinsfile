@@ -32,8 +32,8 @@ pipeline {
             }
         }
        stage('Home Screen Capture') {
-            agent { 
-                label 'ubuntu'
+            agent {
+                docker { image 'ubuntu' }
             }
             steps {
                 echo "Stage to perform home screen capture"
