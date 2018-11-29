@@ -1,26 +1,39 @@
 pipeline {
     agent any
     stages {
-        stage('Cloning from Git') {
+        stage('Flash Bootloader') {
           steps {
-               git 'https://github.com/samgithub121/sample_python_scripts.git'
+               echo "Flash the bootloader"
           }
         }
-        stage('Build image') {
-        /* This builds the actual image; synonymous to
-         * docker build on the command line */
+        stage('Download Package') {
             steps {
-                echo "Inside building image"
-                script{
-                    docker.build("getintodevops/hellonode")
-                }
+                echo "Stage to Download the package"
             }
         }
-       stage('Test image') {
-        /* Ideally, we would run a test framework against our image.
-         * For this example, we're using a Volkswagen-type approach ;-) */
+       stage('Flash Package') {
             steps {
-                echo "Inside test image"
+                echo "Stage to flash the package"
+            }
+        }
+       stage('Enable ADB') {
+            steps {
+                echo "Stage to enable the ADB"
+            }
+        }
+       stage('Initial Settings') {
+            steps {
+                echo "Stage to perform initial settings"
+            }
+        }
+       stage('Home Screen Capture') {
+            steps {
+                echo "Stage to perform home screen capture"
+            }
+        }
+       stage('Run Test'){
+            steps {
+                echo "Stage to run the test[CTS/GTS/CTS_V/CTS_GSI/STS/VTS]"
             }
         }
     }
