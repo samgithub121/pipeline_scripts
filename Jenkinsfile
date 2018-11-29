@@ -81,5 +81,11 @@ pipeline {
                     }
                }
         }
+        stage('Grab & Collect Report') {
+            agent any
+            steps {
+                echo "Stage to grab and collect the report..."
+            }
+        }
     }
 }
