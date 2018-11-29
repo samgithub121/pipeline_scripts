@@ -32,18 +32,18 @@ pipeline {
             }
         }
        stage('Home Screen Capture') {
-            agent {
-                docker { image 'ubuntu' }
-            }
+            agent any
             steps {
                 echo "Stage to perform home screen capture"
             }
         }
        stage('Run Test'){
-            agent any
             steps {
                 parallel(
                     a : {
+                        agent {
+                            docker { image 'ubuntu' }
+                        }
                          echo "Build Parallel 1"
                     },
                     b : {
