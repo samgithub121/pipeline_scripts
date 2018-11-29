@@ -33,7 +33,14 @@ pipeline {
         }
        stage('Run Test'){
             steps {
-                echo "Stage to run the test[CTS/GTS/CTS_V/CTS_GSI/STS/VTS]"
+                parallel(
+                    a : {
+                         echo "Build Parallel 1"
+                    },
+                    b : {
+                         echo "Build Parallel 2"    
+                    }
+                )
             }
         }
        stage('Grab & Upload Results'){
