@@ -1,3 +1,23 @@
+def trigger_test_boards(){
+    parallel{
+          stage("Trigger - Board 1") {
+               steps{
+                  echo "Run Test Board-1"
+               }
+           }
+           stage("Trigger - Board 2") {
+                steps {
+                    echo "Run Test Board-2"
+                }   
+            }
+            stage("Trigger - Board 3") {
+                 steps {
+                      echo "Run Test Board 3"
+                 }   
+            }   
+    }
+}
+
 pipeline {
     agent none
     stages {
@@ -44,7 +64,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps{
-                             echo "Run the CTS Test here...."
+                             trigger_test_boards()
                         }
                     }
                     stage("Run GTS Test") {
@@ -52,7 +72,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Run the GTS Test here...."
+                             trigger_test_boards()
                         }   
                     }
                     stage("Run CTS_V Test") {
@@ -60,7 +80,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Run the CTS_V Test here..."
+                             trigger_test_boards()
                         }   
                     }
                     stage("Run STS") {
@@ -68,7 +88,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Run the STS Test here"
+                             trigger_test_boards()
                         }   
                     }
                     stage("Run VTS") {
@@ -76,7 +96,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Run the STS Test here"
+                             trigger_test_boards()
                         }   
                     }
                }
