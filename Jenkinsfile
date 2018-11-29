@@ -1,6 +1,5 @@
-def trigger_test_boards(){
+/*def trigger_test_boards(){
     pipeline {
-        agent none
         stage('Trigger on Board'){
             parallel{
                   stage("Trigger - Board 1") {
@@ -21,7 +20,7 @@ def trigger_test_boards(){
             }
         }
     }
-}
+}*/
 
 pipeline {
     agent none
@@ -69,7 +68,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps{
-                             trigger_test_boards()
+                             echo "Step to run CTS"
                         }
                     }
                     stage("Run GTS Test") {
@@ -77,7 +76,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             trigger_test_boards()
+                              echo "Step to run GTS"
                         }   
                     }
                     stage("Run CTS_V Test") {
@@ -85,7 +84,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             trigger_test_boards()
+                             echo "Step to run CTS_V"
                         }   
                     }
                     stage("Run STS") {
@@ -93,7 +92,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             trigger_test_boards()
+                             echo "Step to run STS"
                         }   
                     }
                     stage("Run VTS") {
@@ -101,7 +100,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             trigger_test_boards()
+                             echo "Step to run VTS"
                         }   
                     }
                }
