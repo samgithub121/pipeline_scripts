@@ -40,17 +40,24 @@ pipeline {
        stage('Run Test'){
             agent any
             steps {
-                parallel(
-                    a : {
-                         agent {
-                           docker { image 'ubuntu' }
-                         }
-                           echo "Build Parallel 1"
-                    },
-                    b : {
-                         echo "Build Parallel 2"    
+                parallel{
+                    stage("Run CTS Test") {
+                        agent {
+                            docker {image 'ubuntu'}
+                        }
+                    steps{
+                           echo "Run the CTS Test here...."
+                        }
                     }
-                )
+                    stage("Run GTS Test") {
+                        agent {
+                            docker {image 'ubuntu'}
+                        }
+                    steps {
+                          echo "Run the GTS Test here...."
+                        }   
+                    }
+                }
             }
         }
        stage('Grab & Upload Results'){
