@@ -1,6 +1,6 @@
 properties([
   parameters([
-    choice(name: 'Boards', defaultValue: 'TESTING', description: 'Available boards for testing', )
+    choice(name: 'Boards', choices: '1,2,3', description: 'Available boards for testing', )
    ])
 ])
 
