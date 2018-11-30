@@ -1,9 +1,4 @@
-properties([
-  parameters([
-    choice(name: 'Boards', choices: ["A", "B", "C"].join("\n"), description: 'Available boards for testing', )
-   ])
-])
-
+parameters([choice(choices:['1', '2'], description: 'Select your testcase', name: 'Board')])
 pipeline {
     agent none
     stages {
