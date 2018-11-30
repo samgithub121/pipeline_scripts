@@ -1,27 +1,3 @@
-/*def trigger_test_boards(){
-    pipeline {
-        stage('Trigger on Board'){
-            parallel{
-                  stage("Trigger - Board 1") {
-                       steps{
-                          echo "Run Test Board-1"
-                       }
-                   }
-                   stage("Trigger - Board 2") {
-                        steps {
-                            echo "Run Test Board-2"
-                        }   
-                    }
-                    stage("Trigger - Board 3") {
-                         steps {
-                              echo "Run Test Board 3"
-                         }   
-                    }   
-            }
-        }
-    }
-}*/
-
 pipeline {
     agent none
     stages {
@@ -68,7 +44,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps{
-                             echo "Step to run CTS"
+                             echo "Step to run CTS test parallelly on 6 boards"
                         }
                     }
                     stage("Run GTS Test") {
@@ -76,7 +52,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                              echo "Step to run GTS"
+                              echo "Step to run GTS test parallelly on 6 boards"
                         }   
                     }
                     stage("Run CTS_V Test") {
@@ -84,7 +60,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Step to run CTS_V"
+                             echo "Step to run CTS_V test parallelly on 6 boards"
                         }   
                     }
                     stage("Run CTS_GSI Test") {
@@ -92,7 +68,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Step to run CTS_GSI"
+                             echo "Step to run CTS_GSI test parallelly on 6 boards"
                         }   
                     }
                     stage("Run STS") {
@@ -100,7 +76,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Step to run STS"
+                             echo "Step to run STS test parallelly on 6 boards"
                         }   
                     }
                     stage("Run VTS") {
@@ -108,7 +84,7 @@ pipeline {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Step to run VTS"
+                             echo "Step to run VTS test parallelly on 6 boards"
                         }   
                     }
                }
