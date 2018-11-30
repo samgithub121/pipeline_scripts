@@ -87,6 +87,14 @@ pipeline {
                              echo "Step to run CTS_V"
                         }   
                     }
+                    stage("Run CTS_GSI Test") {
+                        agent {
+                             docker {image 'ubuntu'}
+                        }
+                        steps {
+                             echo "Step to run CTS_GSI"
+                        }   
+                    }
                     stage("Run STS") {
                         agent {
                              docker {image 'ubuntu'}
