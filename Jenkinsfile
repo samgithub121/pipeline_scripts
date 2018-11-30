@@ -1,4 +1,4 @@
-parameters([choice(choices:['1', '2'], description: 'Select your testcase', name: 'Board')])
+properties([parameters([choice(choices:'HappyFlow\nNewYork_HappyFlow',description: 'Select the board',name: 'Boards') ])])
 pipeline {
     agent none
     stages {
