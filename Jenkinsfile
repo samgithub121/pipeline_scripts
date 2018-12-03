@@ -32,6 +32,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("name",
             3, 
             "multiselect", 
             ",") 
+}
 pipeline {
     agent none
     stages {
