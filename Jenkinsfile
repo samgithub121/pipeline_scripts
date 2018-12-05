@@ -1,5 +1,6 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
-/* Multiple choice to select the board numbes */
+
+/*-----------------Multiple choice to select the board numbes-------------------------- */
 node {
 def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
             "PT_MULTI_SELECT", 
@@ -34,9 +35,10 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
             ",") 
 
    def userInput = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
-echo "Hello: "+ userInput
+echo "User Selected Boards are -> "+ userInput
 }
-/* Section to select the associated jobs */
+
+/*------------------------Section to select the associated jobs----------------------------------- */
 node {
 def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs", 
             "PT_MULTI_SELECT", 
@@ -71,7 +73,45 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs",
             ",") 
 
    def userInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
-echo "Hello: "+ userInput
+echo "User Selected Jobs are ->"+ userInput
+}
+
+/*---------------------Section To Select The TOOLS----------------------------- */
+node {
+def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools", 
+            "PT_MULTI_SELECT", 
+            "CTS,GTS,CTS_V,CTS_GSI,STS,VTS", 
+            "project name",
+            "", 
+            "",
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "CTS,GTS,CTS_V,CTS_GSI,STS,VTS", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            false,
+            false, 
+            6, 
+            "multiselect", 
+            ",") 
+
+   def userInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
+echo "User Selected tools are ->"+ userInput
 }
 
 
