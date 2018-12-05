@@ -34,8 +34,8 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
             "multiselect", 
             ",") 
 
-   def userInput = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
-echo "User Selected Boards are -> "+ userInput
+   def boardInput = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
+echo "User Selected Boards are -> "+ boardInput
 }
 
 /*------------------------Section to select the associated jobs----------------------------------- */
@@ -72,8 +72,8 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs",
             "multiselect", 
             ",") 
 
-   def userInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
-echo "User Selected Jobs are ->"+ userInput
+   def jobInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
+echo "User Selected Jobs are ->"+ jobInput
 }
 
 /*---------------------Section To Select The TOOLS----------------------------- */
@@ -110,13 +110,14 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
             "multiselect", 
             ",") 
 
-   def userInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
-echo "User Selected tools are ->"+ userInput
+   def toolInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
+echo "User Selected tools are ->"+ toolInput
 }
 
 
 pipeline {
     agent none
+    echo "User Inputs are ->"+boardInput
     stages {
         stage('Flash Bootloader') {
           agent any
