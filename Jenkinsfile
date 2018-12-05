@@ -1,35 +1,3 @@
-import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
-def multiSelect= new ExtendedChoiceParameterDefinition("name", 
-            "PT_MULTI_SELECT", 
-            "blue,green,yellow,blue", 
-            "project name",
-            "", 
-            "",
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "blue,green,yellow,blue", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            false,
-            false, 
-            3, 
-            "multiselect", 
-            ",") 
 pipeline {
     agent none
     stages {
@@ -67,6 +35,24 @@ pipeline {
             agent any
             steps {
                 echo "Stage to perform home screen capture"
+            }
+        }
+        stage('Factory Reset') {
+            agent any
+            steps {
+                echo "Stage to perform factory reset"
+            }
+        }
+        stage('Reboot') {
+            agent any
+            steps {
+                echo "Stage to perform reboot"
+            }
+        }
+        stage('Write EeProm') {
+            agent any
+            steps {
+                echo "Stage to perform - Write EeProm Values"
             }
         }
        stage('Run Test'){
