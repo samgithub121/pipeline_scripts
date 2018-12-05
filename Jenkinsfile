@@ -1,9 +1,9 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
-
+/* Multiple choice to select the board numbes */
 node {
-def multiSelect= new ExtendedChoiceParameterDefinition("name", 
+def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
             "PT_MULTI_SELECT", 
-            "blue,green,yellow,blue", 
+            "Board-1,Board-2,Board-3,Board-4,Board-5,Board-6", 
             "project name",
             "", 
             "",
@@ -18,7 +18,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("name",
             "", 
             "", 
             "", 
-            "blue,green,yellow,blue", 
+            "Board-1,Board-2,Board-3,Board-4,Board-5,Board-6", 
             "", 
             "", 
             "", 
@@ -34,9 +34,9 @@ def multiSelect= new ExtendedChoiceParameterDefinition("name",
             ",") 
 
    def userInput = input  id: 'customID', message: 'Let\'s promote?', ok: 'Release!', parameters:  [multiSelect]
-
 echo "Hello: "+ userInput
 }
+
 pipeline {
     agent none
     stages {
