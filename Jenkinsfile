@@ -29,7 +29,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
             "", 
             false,
             false, 
-            3, 
+            6, 
             "multiselect", 
             ",") 
 
@@ -66,7 +66,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs",
             "", 
             false,
             false, 
-            3, 
+            9, 
             "multiselect", 
             ",") 
 
