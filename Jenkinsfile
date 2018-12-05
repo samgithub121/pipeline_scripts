@@ -33,9 +33,47 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
             "multiselect", 
             ",") 
 
-   def userInput = input  id: 'customID', message: 'Let\'s promote?', ok: 'Release!', parameters:  [multiSelect]
+   def userInput = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
 echo "Hello: "+ userInput
 }
+/* Section to select the associated jobs */
+node {
+def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs", 
+            "PT_MULTI_SELECT", 
+            "Flash Bootloader,Download Package,Flash Package,Enable ADB,Initial Settings,Home Screen Capture,Reboot,Factory Reset, Write EeProm", 
+            "project name",
+            "", 
+            "",
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "Flash Bootloader,Download Package,Flash Package,Enable ADB,Initial Settings,Home Screen Capture,Reboot,Factory Reset, Write EeProm", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            false,
+            false, 
+            3, 
+            "multiselect", 
+            ",") 
+
+   def userInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
+echo "Hello: "+ userInput
+}
+
 
 pipeline {
     agent none
