@@ -1,5 +1,9 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
+boardInput = ""
+jobInput = ""
+toolInput = ""
+
 /*-----------------Multiple choice to select the board numbes-------------------------- */
 node {
 def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
@@ -114,7 +118,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
 echo "User Selected tools are ->"+ toolInput
 }
 node {
-    if (boardInput == "Board-1") {
+    if (boardInput.Env == "Board-1") {
         echo "Board-1 got selected..."
     } else {
         echo "Board-1is not selected"
