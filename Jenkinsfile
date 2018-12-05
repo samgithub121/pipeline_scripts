@@ -34,8 +34,13 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
             "multiselect", 
             ",") 
 
-   def boardInput = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
-echo "User Selected Boards are -> "+ boardInput
+    def boardInput = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
+    echo "User Selected Boards are -> "+ boardInput
+    if (boardInput == "Board-1") {
+        echo "Board-1 got selected..."
+    } else {
+        echo "Board-1is not selected"
+    } 
 }
 
 /*------------------------Section to select the associated jobs----------------------------------- */
@@ -112,13 +117,6 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
 
    def toolInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
 echo "User Selected tools are ->"+ toolInput
-}
-node {
-    if (boardInput == "Board-1") {
-        echo "Board-1 got selected..."
-    } else {
-        echo "this was not successful"
-    } 
 }
 
 pipeline {
