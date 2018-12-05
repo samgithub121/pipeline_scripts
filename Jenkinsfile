@@ -113,11 +113,6 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
    def toolInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
 echo "User Selected tools are ->"+ toolInput
 }
-node {
-      echo "User Selected Boards are ->-----"+ boardInput
-      echo "User Selected Jobs are ->-------"+ jobInput
-      echo "User Selected tools are ->------"+ toolInput      
-}
 
 pipeline {
     agent none
