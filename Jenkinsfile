@@ -1,5 +1,6 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
+node {
 def multiSelect= new ExtendedChoiceParameterDefinition("name", 
             "PT_MULTI_SELECT", 
             "blue,green,yellow,blue", 
@@ -32,6 +33,10 @@ def multiSelect= new ExtendedChoiceParameterDefinition("name",
             "multiselect", 
             ",") 
 
+   def userInput = input  id: 'customID', message: 'Let\'s promote?', ok: 'Release!', parameters:  [multiSelect]
+
+echo "Hello: "+ userInput
+}
 pipeline {
     agent none
     stages {
