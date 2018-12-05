@@ -113,6 +113,13 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
    def toolInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
 echo "User Selected tools are ->"+ toolInput
 }
+node {
+    if (boardInput == "Board-1") {
+        echo "Board-1 got selected..."
+    } else {
+        echo "this was not successful"
+    } 
+}
 
 pipeline {
     agent none
