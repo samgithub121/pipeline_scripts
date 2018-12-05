@@ -117,7 +117,6 @@ echo "User Selected tools are ->"+ toolInput
 
 pipeline {
     agent none
-    echo "User Inputs are ->"+boardInput
     stages {
         stage('Flash Bootloader') {
           agent any
