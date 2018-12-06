@@ -50,46 +50,6 @@ node {
     } 
 }
 
-
-
-/*-----------------Multiple choice to select the board numbes-------------------------- */
-node {
-def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
-            "PT_MULTI_SELECT", 
-            "B1,B2,B3,B4,B5,B6", 
-            "project name",
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "B1,B2,B3,B4,B5,B6", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            "", 
-            false,
-            false, 
-            6, 
-            "multiselect", 
-            ",") 
-
-    def boardInput  = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
-    echo "User Selected Boards are -> "+ boardInput
-}
-
 /*------------------------Section to select the associated jobs----------------------------------- */
 node {
 def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs", 
