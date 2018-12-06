@@ -1,13 +1,9 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
-def executeOnBoards(String boardInput) {
+def executeOnBoards() {
     parallel B1: {
                 stage ('B1') 
                 {
-                    agent any
-                    when {
-                         expression { boardInput.contains("B1") }
-                    }
                     steps{
                         echo "B1 running"
                     }
@@ -15,10 +11,7 @@ def executeOnBoards(String boardInput) {
     }, B2: {
                 stage ('B2') 
                 {
-                    agent any
-                    when {
-                         expression { boardInput.contains("B2") }
-                    }
+                  
                     steps{
                         echo "B2 running"
                     }
@@ -26,10 +19,7 @@ def executeOnBoards(String boardInput) {
     }, B3: {
                 stage ('B3') 
                 {
-                    agent any
-                    when {
-                         expression { boardInput.contains("B3") }
-                    }
+                    
                     steps{
                         echo "B3 running"
                     }
@@ -37,10 +27,7 @@ def executeOnBoards(String boardInput) {
     }, B4: {
                 stage ('B4') 
                 {
-                    agent any
-                    when {
-                         expression { boardInput.contains("B4") }
-                    }
+                  
                     steps{
                         echo "B4 running"
                     }
@@ -48,10 +35,7 @@ def executeOnBoards(String boardInput) {
     }, B5: {
                 stage ('B5') 
                 {
-                    agent any
-                    when {
-                         expression { boardInput.contains("B5") }
-                    }
+                   
                     steps{
                         echo "B5 running"
                     }
@@ -59,10 +43,7 @@ def executeOnBoards(String boardInput) {
     }, B6: {
                 stage ('B6') 
                 {
-                    agent any
-                    when {
-                         expression { boardInput.contains("B6") }
-                    }
+                   
                     steps{
                         echo "B6 running"
                     }
@@ -192,13 +173,6 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
     echo "Aborted by"
 }
 
-node {
-    if (boardInput == "B1,B2,B3") {
-        echo "B1,B2,B3 got selected"
-    } else {
-        echo "B1 not selected"
-    } 
-}
 
 pipeline {
     agent none
@@ -210,7 +184,7 @@ pipeline {
           }
           steps {
                echo "Fl Blr....."
-               executeOnBoards(boardInput)
+               executeOnBoards()
           }
         }
         stage('D Pkg') {
@@ -229,7 +203,7 @@ pipeline {
             }
             steps {
                 echo "Stage to Fl Pkg"
-                executeOnBoards(boardInput)
+                executeOnBoards()
             }
         }
        stage('E Adb') {
@@ -239,7 +213,7 @@ pipeline {
             }
             steps {
                 echo "Stage to E Adb"
-                executeOnBoards(boardInput)
+                executeOnBoards()
             }
         }
        stage('Ini Set') {
@@ -249,7 +223,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Ini Set"
-                executeOnBoards(boardInput)
+                executeOnBoards()
             }
         }
        stage('HSC') {
@@ -268,7 +242,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Rbt"
-                executeOnBoards(boardInput)
+                executeOnBoards()
             }
         }
         stage('Ftry Rst') {
@@ -278,7 +252,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Ftry Rst"
-                executeOnBoards(boardInput)
+                executeOnBoards()
             }
         }
         stage('W Eep') {
@@ -288,7 +262,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform - W Eep"
-                executeOnBoards(boardInput)
+                executeOnBoards()
             }
         }
        stage('Run Test'){
@@ -302,7 +276,7 @@ pipeline {
                         }
                         steps{
                              echo "Step to run C test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards()
                         }
                     }
                     stage("Run GT Test") {
@@ -314,7 +288,7 @@ pipeline {
                         }
                         steps {
                               echo "Step to run G test parallelly on 6 boards"
-                              executeOnBoards(boardInput)
+                              executeOnBoards()
                         }   
                     }
                     stage("Run C_V Test") {
@@ -326,7 +300,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run C_V test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards()
                         }   
                     }
                     stage("Run C_GSI Test") {
@@ -338,7 +312,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run C_GSI test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards()
                         }   
                     }
                     stage("Run ST") {
@@ -350,7 +324,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run ST test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards()
                         }   
                     }
                     stage("Run VT") {
@@ -362,7 +336,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run V test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards()
                         }   
                     }
                }
@@ -371,7 +345,7 @@ pipeline {
             agent any
             steps {
                 echo "Stage to grab and collect the report..."
-                executeOnBoards(boardInput)
+                executeOnBoards()
             }
         }
     }
