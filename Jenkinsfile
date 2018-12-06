@@ -39,14 +39,6 @@ try {
     echo "Aborted by"
 }
 
-node {
-    if (boardInput == "B1") {
-        echo "B1 got selected"
-    } else {
-        echo "this was not successful"
-    } 
-}
-
 /*------------------------Section to select the associated jobs----------------------------------- */
 def jobInput
 try {
@@ -85,14 +77,6 @@ try {
    jobInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
 } catch(err) { // input false
     echo "Aborted by"
-}
-
-node {
-    if (jobInput == "Fl Blr") {
-        echo "Fl Blr got selected"
-    } else {
-        echo "Fl Blr not selected"
-    } 
 }
 
 /*---------------------Section To Select The TOOLS----------------------------- */
@@ -136,7 +120,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
 }
 
 node {
-    if (toolInput == "C") {
+    if (boardInput == "C") {
         echo "C got selected"
     } else {
         echo "C not selected"
