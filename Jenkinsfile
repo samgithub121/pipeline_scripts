@@ -4,12 +4,7 @@ def executeOnBoards(String boardInput) {
     parallel B1: {
                 stage ('B1') 
                 {
-                    when {
-                          expression { boardInput.contains("B1") }
-                    }
-                    steps{
-                          echo "B1 running"
-                    }
+                     echo "B1 running"
                 }
     }, B2: {
                 stage ('B2') 
