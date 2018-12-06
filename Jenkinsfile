@@ -4,7 +4,7 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 node {
 def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
             "PT_MULTI_SELECT", 
-            "Board-1,Board-2,Board-3,Board-4,Board-5,Board-6", 
+            "B1,B2,B3,B4,B5,B6", 
             "project name",
             "", 
             "", 
@@ -19,7 +19,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
             "", 
             "", 
             "", 
-            "Board-1,Board-2,Board-3,Board-4,Board-5,Board-6", 
+            "B1,B2,B3,B4,B5,B6", 
             "", 
             "", 
             "", 
@@ -42,7 +42,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
 node {
 def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs", 
             "PT_MULTI_SELECT", 
-            "Flash Bootloader,Download Package,Flash Package,Enable ADB,Initial Settings,Home Screen Capture,Reboot,Factory Reset, Write EeProm", 
+            "Fl Blr,D Pkg,Fl Pkg,E Adb,Ini Set,HSC,Rbt,Ftry Rst, W Eep", 
             "project name",
             "", 
             "",
@@ -57,7 +57,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs",
             "", 
             "", 
             "", 
-            "Flash Bootloader,Download Package,Flash Package,Enable ADB,Initial Settings,Home Screen Capture,Reboot,Factory Reset, Write EeProm", 
+            "Fl Blr,D Pkg,Fl Pkg,E Adb,Ini Set,HSC,Rbt,Ftry Rst, W Eep", 
             "", 
             "", 
             "", 
@@ -80,7 +80,7 @@ echo "User Selected Jobs are ->"+ jobInput
 node {
 def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools", 
             "PT_MULTI_SELECT", 
-            "CTS,GTS,CTS_V,CTS_GSI,STS,VTS", 
+            "C,G,C_V,C_GSI,S,V", 
             "project name",
             "", 
             "",
@@ -95,7 +95,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
             "", 
             "", 
             "", 
-            "CTS,GTS,CTS_V,CTS_GSI,STS,VTS", 
+            "C,G,C_V,C_GSI,S,V", 
             "", 
             "", 
             "", 
@@ -117,108 +117,108 @@ echo "User Selected tools are ->"+ toolInput
 pipeline {
     agent none
     stages {
-        stage('Flash Bootloader') {
+        stage('Fl Blr') {
           agent any
           steps {
-               echo "Flash the bootloader"
+               echo "Fl Blr....."
           }
         }
-        stage('Download Package') {
+        stage('D Pkg') {
             agent any
             steps {
-                echo "Stage to Download the package"
+                echo "Stage to D Pkg"
             }
         }
-       stage('Flash Package') {
+       stage('Fl Pkg') {
             agent any
             steps {
-                echo "Stage to flash the package"
+                echo "Stage to Fl Pkg"
             }
         }
-       stage('Enable ADB') {
+       stage('E Adb') {
             agent any
             steps {
-                echo "Stage to enable the ADB"
+                echo "Stage to E Adb"
             }
         }
-       stage('Initial Settings') {
+       stage('Ini Set') {
             agent any
             steps {
-                echo "Stage to perform initial settings"
+                echo "Stage to perform Ini Set"
             }
         }
-       stage('Home Screen Capture') {
+       stage('HSC') {
             agent any
             steps {
-                echo "Stage to perform home screen capture"
+                echo "Stage to perform HSC"
             }
         }
-        stage('Factory Reset') {
+        stage('Rbt') {
             agent any
             steps {
-                echo "Stage to perform factory reset"
+                echo "Stage to perform Rbt"
             }
         }
-        stage('Reboot') {
+        stage('Ftry Rst') {
             agent any
             steps {
-                echo "Stage to perform reboot"
+                echo "Stage to perform Ftry Rst"
             }
         }
-        stage('Write EeProm') {
+        stage('W Eep') {
             agent any
             steps {
-                echo "Stage to perform - Write EeProm Values"
+                echo "Stage to perform - W Eep"
             }
         }
        stage('Run Test'){
                 parallel{
-                    stage("Run CTS Test") {
+                    stage("Run C Test") {
                         agent {
                              docker {image 'ubuntu'}
                         }
                         steps{
-                             echo "Step to run CTS test parallelly on 6 boards"
+                             echo "Step to run C test parallelly on 6 boards"
                         }
                     }
-                    stage("Run GTS Test") {
+                    stage("Run G Test") {
                         agent {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                              echo "Step to run GTS test parallelly on 6 boards"
+                              echo "Step to run G test parallelly on 6 boards"
                         }   
                     }
-                    stage("Run CTS_V Test") {
+                    stage("Run C_V Test") {
                         agent {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Step to run CTS_V test parallelly on 6 boards"
+                             echo "Step to run C_V test parallelly on 6 boards"
                         }   
                     }
-                    stage("Run CTS_GSI Test") {
+                    stage("Run C_GSI Test") {
                         agent {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Step to run CTS_GSI test parallelly on 6 boards"
+                             echo "Step to run C_GSI test parallelly on 6 boards"
                         }   
                     }
-                    stage("Run STS") {
+                    stage("Run S") {
                         agent {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Step to run STS test parallelly on 6 boards"
+                             echo "Step to run S test parallelly on 6 boards"
                         }   
                     }
-                    stage("Run VTS") {
+                    stage("Run V") {
                         agent {
                              docker {image 'ubuntu'}
                         }
                         steps {
-                             echo "Step to run VTS test parallelly on 6 boards"
+                             echo "Step to run V test parallelly on 6 boards"
                         }   
                     }
                }
