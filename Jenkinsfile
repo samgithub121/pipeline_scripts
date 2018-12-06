@@ -144,48 +144,72 @@ pipeline {
         }
         stage('D Pkg') {
             agent any
+            when {
+                expression { jobInput == "D Pkg" }
+            }
             steps {
                 echo "Stage to D Pkg"
             }
         }
        stage('Fl Pkg') {
             agent any
+            when {
+                expression { jobInput == "Fl Pkg" }
+            }
             steps {
                 echo "Stage to Fl Pkg"
             }
         }
        stage('E Adb') {
             agent any
+            when {
+                expression { jobInput == "E Adb" }
+            }
             steps {
                 echo "Stage to E Adb"
             }
         }
        stage('Ini Set') {
             agent any
+            when {
+                expression { jobInput == "Ini Set" }
+            }
             steps {
                 echo "Stage to perform Ini Set"
             }
         }
        stage('HSC') {
             agent any
+            when {
+                expression { jobInput == "HSC" }
+            }
             steps {
                 echo "Stage to perform HSC"
             }
         }
         stage('Rbt') {
             agent any
+            when {
+                expression { jobInput == "Rbt" }
+            }
             steps {
                 echo "Stage to perform Rbt"
             }
         }
         stage('Ftry Rst') {
             agent any
+            when {
+                expression { jobInput == "Ftry Rst" }
+            }
             steps {
                 echo "Stage to perform Ftry Rst"
             }
         }
         stage('W Eep') {
             agent any
+            when {
+                expression { jobInput == "W Eep" }
+            }
             steps {
                 echo "Stage to perform - W Eep"
             }
