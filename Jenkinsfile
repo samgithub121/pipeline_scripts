@@ -123,8 +123,8 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
 }
 
 node {
-    if (boardInput == "B1") {
-        echo "B1 got selected"
+    if (boardInput == "B1,B2,B3") {
+        echo "B1,B2,B3 got selected"
     } else {
         echo "B1 not selected"
     } 
