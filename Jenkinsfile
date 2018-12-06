@@ -2,12 +2,11 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 
 def executeOnBoards(String boardInput) {
     parallel B1: {
-        when { expression { boardInput.contains("B1") }
+        when { expression { boardInput.contains("B1") } }
                 stage ('B1') 
                 {
                      echo "B1 running"
                 }
-             }
     }, B2: {
          if (boardInput.contains("B2")){      
                 stage ('B2') 
