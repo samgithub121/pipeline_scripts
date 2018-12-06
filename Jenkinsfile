@@ -1,7 +1,7 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
 def executeOnBoards() {
-    stage("Run on Boards"){
+    stages {
         parallel{
             stage("B1") {
                 echo "Trigger test on B1"
