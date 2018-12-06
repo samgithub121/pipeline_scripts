@@ -133,14 +133,13 @@ node {
 pipeline {
     agent none
     stages {
-        stage('Fl Blr') {
+        stage('Fl Blr', false) {
           agent any
-          when { jobInput=="Fl Blr"}
           steps {
                echo "Fl Blr....."
           }
         }
-        stage('D Pkg') {
+        stage('D Pkg', false) {
             agent any
             steps {
                 echo "Stage to D Pkg"
