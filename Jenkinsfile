@@ -1,12 +1,12 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
-def executeOnBoards(String boardIds) {
+def executeOnBoards(String boardInput) {
     parallel B1: {
                 stage ('B1') 
                 {
                     agent any
                     when {
-                         expression { boardIds.contains("B1") }
+                         expression { boardInput.contains("B1") }
                     }
                     steps{
                         echo "B1 running"
@@ -17,7 +17,7 @@ def executeOnBoards(String boardIds) {
                 {
                     agent any
                     when {
-                         expression { boardIds.contains("B2") }
+                         expression { boardInput.contains("B2") }
                     }
                     steps{
                         echo "B2 running"
@@ -28,7 +28,7 @@ def executeOnBoards(String boardIds) {
                 {
                     agent any
                     when {
-                         expression { boardIds.contains("B3") }
+                         expression { boardInput.contains("B3") }
                     }
                     steps{
                         echo "B3 running"
@@ -39,7 +39,7 @@ def executeOnBoards(String boardIds) {
                 {
                     agent any
                     when {
-                         expression { boardIds.contains("B4") }
+                         expression { boardInput.contains("B4") }
                     }
                     steps{
                         echo "B4 running"
@@ -50,7 +50,7 @@ def executeOnBoards(String boardIds) {
                 {
                     agent any
                     when {
-                         expression { boardIds.contains("B5") }
+                         expression { boardInput.contains("B5") }
                     }
                     steps{
                         echo "B5 running"
@@ -61,7 +61,7 @@ def executeOnBoards(String boardIds) {
                 {
                     agent any
                     when {
-                         expression { boardIds.contains("B6") }
+                         expression { boardInput.contains("B6") }
                     }
                     steps{
                         echo "B6 running"
