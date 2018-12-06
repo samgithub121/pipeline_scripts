@@ -1,6 +1,6 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
-def executeOnBoards(String boardIds) {
+def executeOnBoards() {
     parallel B1: {
                 stage ('B1') 
                 {
