@@ -135,6 +135,7 @@ pipeline {
     stages {
         stage('Fl Blr') {
           agent any
+          when { jobInput=="Fl Blr"}
           steps {
                echo "Fl Blr....."
           }
