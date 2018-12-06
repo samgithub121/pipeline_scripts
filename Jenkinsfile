@@ -1,5 +1,26 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
+def executeOnBoards() {
+    stage("B1") {
+        echo "Trigger test on B1"
+    }
+    stage("B2") {
+        echo "Trigger test on B2"
+    }
+    stage("B3") {
+        echo "Trigger test on B3"
+    }
+    stage("B4") {
+        echo "Trigger test on B4"
+    }
+    stage("B5") {
+        echo "Trigger test on B5"
+    }
+    stage("B6") {
+        echo "Trigger test on B6"
+    }
+}
+
 def boardInput
 try {
     def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
@@ -140,6 +161,7 @@ pipeline {
           }
           steps {
                echo "Fl Blr....."
+               executeOnBoards()
           }
         }
         stage('D Pkg') {
