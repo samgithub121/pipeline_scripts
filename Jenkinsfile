@@ -41,18 +41,16 @@ try {
 
 node {
     if (boardInput == "B1") {
-        // do something
-        echo "this was successful"
+        echo "B1 got selected"
     } else {
-        // do something else
         echo "this was not successful"
-        currentBuild.result = 'FAILURE'
     } 
 }
 
 /*------------------------Section to select the associated jobs----------------------------------- */
-node {
-def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs", 
+def jobInput
+try {
+    def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs", 
             "PT_MULTI_SELECT", 
             "Fl Blr,D Pkg,Fl Pkg,E Adb,Ini Set,HSC,Rbt,Ftry Rst, W Eep", 
             "project name",
@@ -84,8 +82,18 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Jobs",
             "multiselect", 
             ",") 
 
-   def jobInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
-echo "User Selected Jobs are ->"+ jobInput
+   jobInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
+   echo "User Selected Jobs are ->"+ jobInput
+} catch(err) { // input false
+    echo "Aborted by"
+}
+
+node {
+    if (jobInput == "Fl Blr") {
+        echo "Fl Blr got selected"
+    } else {
+        echo "Fl Blr not selected"
+    } 
 }
 
 /*---------------------Section To Select The TOOLS----------------------------- */
