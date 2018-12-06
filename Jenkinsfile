@@ -1,35 +1,65 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
-def executeOnBoards() {
+def executeOnBoards(String boardIds) {
     parallel B1: {
                 stage ('B1') 
                 {
-                    echo "B1 running"
+                    when {
+                         expression { boardIds.contains("B1") }
+                    }
+                    steps{
+                        echo "B1 running"
+                    }
                 }
     }, B2: {
                 stage ('B2') 
                 {
-                    echo "B2 running"
+                    when {
+                         expression { boardIds.contains("B2") }
+                    }
+                    steps{
+                        echo "B2 running"
+                    }
                 }
     }, B3: {
                 stage ('B3') 
                 {
-                    echo "B3 running"
+                    when {
+                         expression { boardIds.contains("B3") }
+                    }
+                    steps{
+                        echo "B3 running"
+                    }
                 }
     }, B4: {
                 stage ('B4') 
                 {
-                    echo "B4 running"
+                    when {
+                         expression { boardIds.contains("B4") }
+                    }
+                    steps{
+                        echo "B4 running"
+                    }
                 }
     }, B5: {
                 stage ('B5') 
                 {
-                    echo "B5 running"
+                    when {
+                         expression { boardIds.contains("B5") }
+                    }
+                    steps{
+                        echo "B5 running"
+                    }
                 }
     }, B6: {
                 stage ('B6') 
                 {
-                    echo "B6 running"
+                    when {
+                         expression { boardIds.contains("B6") }
+                    }
+                    steps{
+                        echo "B6 running"
+                    }
                 }
     }
 }
@@ -174,7 +204,7 @@ pipeline {
           }
           steps {
                echo "Fl Blr....."
-               executeOnBoards()
+               executeOnBoards(boardInput)
           }
         }
         stage('D Pkg') {
@@ -193,7 +223,7 @@ pipeline {
             }
             steps {
                 echo "Stage to Fl Pkg"
-                executeOnBoards()
+                executeOnBoards(boardInput)
             }
         }
        stage('E Adb') {
@@ -203,7 +233,7 @@ pipeline {
             }
             steps {
                 echo "Stage to E Adb"
-                executeOnBoards()
+                executeOnBoards(boardInput)
             }
         }
        stage('Ini Set') {
@@ -213,7 +243,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Ini Set"
-                executeOnBoards()
+                executeOnBoards(boardInput)
             }
         }
        stage('HSC') {
@@ -232,7 +262,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Rbt"
-                executeOnBoards()
+                executeOnBoards(boardInput)
             }
         }
         stage('Ftry Rst') {
@@ -242,7 +272,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Ftry Rst"
-                executeOnBoards()
+                executeOnBoards(boardInput)
             }
         }
         stage('W Eep') {
@@ -252,7 +282,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform - W Eep"
-                executeOnBoards()
+                executeOnBoards(boardInput)
             }
         }
        stage('Run Test'){
@@ -266,7 +296,7 @@ pipeline {
                         }
                         steps{
                              echo "Step to run C test parallelly on 6 boards"
-                             executeOnBoards()
+                             executeOnBoards(boardInput)
                         }
                     }
                     stage("Run GT Test") {
@@ -278,7 +308,7 @@ pipeline {
                         }
                         steps {
                               echo "Step to run G test parallelly on 6 boards"
-                              executeOnBoards()
+                              executeOnBoards(boardInput)
                         }   
                     }
                     stage("Run C_V Test") {
@@ -290,7 +320,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run C_V test parallelly on 6 boards"
-                             executeOnBoards()
+                             executeOnBoards(boardInput)
                         }   
                     }
                     stage("Run C_GSI Test") {
@@ -302,7 +332,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run C_GSI test parallelly on 6 boards"
-                             executeOnBoards()
+                             executeOnBoards(boardInput)
                         }   
                     }
                     stage("Run ST") {
@@ -314,7 +344,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run ST test parallelly on 6 boards"
-                             executeOnBoards()
+                             executeOnBoards(boardInput)
                         }   
                     }
                     stage("Run VT") {
@@ -326,7 +356,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run V test parallelly on 6 boards"
-                             executeOnBoards()
+                             executeOnBoards(boardInput)
                         }   
                     }
                }
@@ -335,7 +365,7 @@ pipeline {
             agent any
             steps {
                 echo "Stage to grab and collect the report..."
-                executeOnBoards()
+                executeOnBoards(boardInput)
             }
         }
     }
