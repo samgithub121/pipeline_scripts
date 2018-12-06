@@ -34,7 +34,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
             "multiselect", 
             ",") 
 
-    def boardInput = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
+    env.BOARD_INPUT  = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
     echo "User Selected Boards are -> "+ boardInput
 }
 
@@ -121,6 +121,7 @@ pipeline {
           agent any
           steps {
                echo "Fl Blr....."
+               echo "{env.BOARD_INPUT}"
           }
         }
         stage('D Pkg') {
