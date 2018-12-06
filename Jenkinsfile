@@ -35,6 +35,7 @@ try {
             ",") 
 
     boardInput  = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
+    echo "Board Input datas - >" +boardInput
 } catch(err) { // input false
     echo "Aborted by"
 }
@@ -75,6 +76,7 @@ try {
             ",") 
 
    jobInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
+   echo "Job Input datas - >" +jobInput
 } catch(err) { // input false
     echo "Aborted by"
 }
@@ -115,6 +117,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
             ",") 
 
    toolInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
+   echo "Tool Input datas - >" +toolInput
 }catch(err) { // input false
     echo "Aborted by"
 }
