@@ -161,7 +161,9 @@ pipeline {
           }
           steps {
                echo "Fl Blr....."
-               executeOnBoards()
+               parallel{
+                  executeOnBoards()
+               }
           }
         }
         stage('D Pkg') {
