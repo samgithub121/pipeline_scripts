@@ -1,5 +1,57 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
+def userInput
+try {
+    def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
+            "PT_MULTI_SELECT", 
+            "B1,B2,B3,B4,B5,B6", 
+            "project name",
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "B1,B2,B3,B4,B5,B6", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            false,
+            false, 
+            6, 
+            "multiselect", 
+            ",") 
+
+    boardInput  = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
+} catch(err) { // input false
+    echo "Aborted by"
+}
+
+node {
+    if (userInput == true) {
+        // do something
+        echo "this was successful"
+    } else {
+        // do something else
+        echo "this was not successful"
+        currentBuild.result = 'FAILURE'
+    } 
+}
+
+
+
 /*-----------------Multiple choice to select the board numbes-------------------------- */
 node {
 def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
@@ -36,12 +88,6 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
 
     def boardInput  = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
     echo "User Selected Boards are -> "+ boardInput
-    
-    if (boardInput == "B1") {
-        echo "B1 got selected"
-    } else {
-        echo "B1 is not selected"
-    } 
 }
 
 /*------------------------Section to select the associated jobs----------------------------------- */
