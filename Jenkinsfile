@@ -136,7 +136,7 @@ pipeline {
         stage('Fl Blr') {
           agent any
           when {
-             expression { jobInput == "Fl Blr" }
+             expression { jobInput.contains("Fl Blr") }
           }
           steps {
                echo "Fl Blr....."
