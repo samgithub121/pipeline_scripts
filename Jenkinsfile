@@ -1,6 +1,6 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
-def userInput
+def boardInput
 try {
     def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards", 
             "PT_MULTI_SELECT", 
@@ -40,7 +40,7 @@ try {
 }
 
 node {
-    if (userInput == true) {
+    if (boardInput == "B1") {
         // do something
         echo "this was successful"
     } else {
