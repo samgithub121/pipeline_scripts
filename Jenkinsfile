@@ -3,7 +3,7 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 def executeOnBoards(String boardIds) {
     parallel B1: {
                 when {
-                     expression { boardIds.contains("B!") }
+                     expression { boardIds.contains("B1") }
                 }
                 stage ('B1') 
                 {
