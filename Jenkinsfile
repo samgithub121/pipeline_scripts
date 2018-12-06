@@ -1,10 +1,10 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
-def executeOnBoards() {
+def executeOnBoards(String boardInput) {
     parallel B1: {
                 stage ('B1') 
                 {
-                     echo "B1 running"
+                     echo "B1 running---()()()()-"+boardInput
                 }
     }, B2: {
                 stage ('B2') 
@@ -167,7 +167,7 @@ pipeline {
           }
           steps {
                echo "Fl Blr....."
-               executeOnBoards()
+               executeOnBoards(boardInput)
           }
         }
         stage('D Pkg') {
