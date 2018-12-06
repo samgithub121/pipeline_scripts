@@ -36,8 +36,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Available Boards",
 
     def boardInput  = input  id: 'customID', message: 'Kindly select the boards to run the test', ok: 'Proceed', parameters:  [multiSelect]
     echo "User Selected Boards are -> "+ boardInput
-}
-node{
+    
     if (boardInput == "B1") {
         echo "B1 got selected"
     } else {
