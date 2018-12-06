@@ -4,6 +4,7 @@ def executeOnBoards(String boardIds) {
     parallel B1: {
                 stage ('B1') 
                 {
+                    agent any
                     when {
                          expression { boardIds.contains("B1") }
                     }
@@ -14,6 +15,7 @@ def executeOnBoards(String boardIds) {
     }, B2: {
                 stage ('B2') 
                 {
+                    agent any
                     when {
                          expression { boardIds.contains("B2") }
                     }
@@ -24,6 +26,7 @@ def executeOnBoards(String boardIds) {
     }, B3: {
                 stage ('B3') 
                 {
+                    agent any
                     when {
                          expression { boardIds.contains("B3") }
                     }
@@ -34,6 +37,7 @@ def executeOnBoards(String boardIds) {
     }, B4: {
                 stage ('B4') 
                 {
+                    agent any
                     when {
                          expression { boardIds.contains("B4") }
                     }
@@ -44,6 +48,7 @@ def executeOnBoards(String boardIds) {
     }, B5: {
                 stage ('B5') 
                 {
+                    agent any
                     when {
                          expression { boardIds.contains("B5") }
                     }
@@ -54,6 +59,7 @@ def executeOnBoards(String boardIds) {
     }, B6: {
                 stage ('B6') 
                 {
+                    agent any
                     when {
                          expression { boardIds.contains("B6") }
                     }
