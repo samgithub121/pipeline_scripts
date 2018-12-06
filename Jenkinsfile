@@ -4,49 +4,32 @@ def executeOnBoards() {
     parallel B1: {
                 stage ('B1') 
                 {
-                    steps{
-                        echo "B1 running"
-                    }
+                     echo "B1 running"
                 }
     }, B2: {
                 stage ('B2') 
                 {
-                  
-                    steps{
-                        echo "B2 running"
-                    }
+                     echo "B2 running"
                 }
     }, B3: {
                 stage ('B3') 
                 {
-                    
-                    steps{
-                        echo "B3 running"
-                    }
+                     echo "B3 running"
                 }
     }, B4: {
                 stage ('B4') 
                 {
-                  
-                    steps{
-                        echo "B4 running"
-                    }
+                    echo "B4 running"
                 }
     }, B5: {
                 stage ('B5') 
                 {
-                   
-                    steps{
-                        echo "B5 running"
-                    }
+                    echo "B5 running"
                 }
     }, B6: {
                 stage ('B6') 
                 {
-                   
-                    steps{
-                        echo "B6 running"
-                    }
+                    echo "B6 running"
                 }
     }
 }
