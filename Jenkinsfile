@@ -11,6 +11,26 @@ def executeOnBoards() {
                 {
                     echo "B2 running"
                 }
+    }, B3: {
+                stage ('B3') 
+                {
+                    echo "B3 running"
+                }
+    }, B4: {
+                stage ('B4') 
+                {
+                    echo "B4 running"
+                }
+    }, B5: {
+                stage ('B5') 
+                {
+                    echo "B5 running"
+                }
+    }, B6: {
+                stage ('B6') 
+                {
+                    echo "B6 running"
+                }
     }
 }
 
