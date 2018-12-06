@@ -83,7 +83,6 @@ try {
             ",") 
 
    jobInput = input  id: 'customID', message: 'Kindly select the associated Jobs?', ok: 'Proceed', parameters:  [multiSelect]
-   echo "User Selected Jobs are ->"+ jobInput
 } catch(err) { // input false
     echo "Aborted by"
 }
@@ -97,7 +96,8 @@ node {
 }
 
 /*---------------------Section To Select The TOOLS----------------------------- */
-node {
+def toolInput
+try {
 def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools", 
             "PT_MULTI_SELECT", 
             "C,G,C_V,C_GSI,S,V", 
@@ -130,8 +130,17 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
             "multiselect", 
             ",") 
 
-   def toolInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
-echo "User Selected tools are ->"+ toolInput
+   toolInput = input  id: 'customID', message: 'Kindly select the tools needed to run?', ok: 'Proceed', parameters:  [multiSelect]
+}catch(err) { // input false
+    echo "Aborted by"
+}
+
+node {
+    if (toolInput == "C") {
+        echo "C got selected"
+    } else {
+        echo "C not selected"
+    } 
 }
 
 pipeline {
