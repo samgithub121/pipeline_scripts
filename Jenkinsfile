@@ -86,7 +86,7 @@ def toolInput
 try {
 def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools", 
             "PT_MULTI_SELECT", 
-            "C,G,C_V,C_GSI,S,V", 
+            "CT,GT,C_V,C_GSI,ST,VT", 
             "project name",
             "", 
             "",
@@ -101,7 +101,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
             "", 
             "", 
             "", 
-            "C,G,C_V,C_GSI,S,V", 
+            "CT,GT,C_V,C_GSI,ST,VT", 
             "", 
             "", 
             "", 
@@ -145,7 +145,7 @@ pipeline {
         stage('D Pkg') {
             agent any
             when {
-                expression { jobInput == "D Pkg" }
+                expression { jobInput.contains("D Pkg") }
             }
             steps {
                 echo "Stage to D Pkg"
@@ -154,7 +154,7 @@ pipeline {
        stage('Fl Pkg') {
             agent any
             when {
-                expression { jobInput == "Fl Pkg" }
+                expression { jobInput.contains("Fl Pkg") }
             }
             steps {
                 echo "Stage to Fl Pkg"
@@ -163,7 +163,7 @@ pipeline {
        stage('E Adb') {
             agent any
             when {
-                expression { jobInput == "E Adb" }
+                expression { jobInput.contains("E Adb") }
             }
             steps {
                 echo "Stage to E Adb"
@@ -172,7 +172,7 @@ pipeline {
        stage('Ini Set') {
             agent any
             when {
-                expression { jobInput == "Ini Set" }
+                expression { jobInput.contains("Ini Set") }
             }
             steps {
                 echo "Stage to perform Ini Set"
@@ -181,7 +181,7 @@ pipeline {
        stage('HSC') {
             agent any
             when {
-                expression { jobInput == "HSC" }
+                expression { jobInput.contains("HSC") }
             }
             steps {
                 echo "Stage to perform HSC"
@@ -190,7 +190,7 @@ pipeline {
         stage('Rbt') {
             agent any
             when {
-                expression { jobInput == "Rbt" }
+                expression { jobInput.contains("Rbt") }
             }
             steps {
                 echo "Stage to perform Rbt"
@@ -199,7 +199,7 @@ pipeline {
         stage('Ftry Rst') {
             agent any
             when {
-                expression { jobInput == "Ftry Rst" }
+                expression { jobInput.contains("Ftry Rst") }
             }
             steps {
                 echo "Stage to perform Ftry Rst"
@@ -208,7 +208,7 @@ pipeline {
         stage('W Eep') {
             agent any
             when {
-                expression { jobInput == "W Eep" }
+                expression { jobInput.contains("W Eep") }
             }
             steps {
                 echo "Stage to perform - W Eep"
@@ -216,17 +216,23 @@ pipeline {
         }
        stage('Run Test'){
                 parallel{
-                    stage("Run C Test") {
+                    stage("Run CT Test") {
                         agent {
                              docker {image 'ubuntu'}
+                        }
+                        when {
+                            expression { toolInput.contains("CT") }
                         }
                         steps{
                              echo "Step to run C test parallelly on 6 boards"
                         }
                     }
-                    stage("Run G Test") {
+                    stage("Run GT Test") {
                         agent {
                              docker {image 'ubuntu'}
+                        }
+                        when {
+                            expression { toolInput.contains("GT") }
                         }
                         steps {
                               echo "Step to run G test parallelly on 6 boards"
@@ -236,6 +242,9 @@ pipeline {
                         agent {
                              docker {image 'ubuntu'}
                         }
+                        when {
+                            expression { toolInput.contains("C_V") }
+                        }
                         steps {
                              echo "Step to run C_V test parallelly on 6 boards"
                         }   
@@ -244,21 +253,30 @@ pipeline {
                         agent {
                              docker {image 'ubuntu'}
                         }
+                        when {
+                            expression { toolInput.contains("C_GSI") }
+                        }
                         steps {
                              echo "Step to run C_GSI test parallelly on 6 boards"
                         }   
                     }
-                    stage("Run S") {
+                    stage("Run ST") {
                         agent {
                              docker {image 'ubuntu'}
                         }
+                        when {
+                            expression { toolInput.contains("ST") }
+                        }
                         steps {
-                             echo "Step to run S test parallelly on 6 boards"
+                             echo "Step to run ST test parallelly on 6 boards"
                         }   
                     }
-                    stage("Run V") {
+                    stage("Run VT") {
                         agent {
                              docker {image 'ubuntu'}
+                        }
+                        when {
+                            expression { toolInput.contains("VT") }
                         }
                         steps {
                              echo "Step to run V test parallelly on 6 boards"
