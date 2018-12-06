@@ -193,6 +193,7 @@ pipeline {
             }
             steps {
                 echo "Stage to Fl Pkg"
+                executeOnBoards()
             }
         }
        stage('E Adb') {
@@ -202,6 +203,7 @@ pipeline {
             }
             steps {
                 echo "Stage to E Adb"
+                executeOnBoards()
             }
         }
        stage('Ini Set') {
@@ -211,6 +213,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Ini Set"
+                executeOnBoards()
             }
         }
        stage('HSC') {
@@ -229,6 +232,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Rbt"
+                executeOnBoards()
             }
         }
         stage('Ftry Rst') {
@@ -238,6 +242,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Ftry Rst"
+                executeOnBoards()
             }
         }
         stage('W Eep') {
@@ -247,6 +252,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform - W Eep"
+                executeOnBoards()
             }
         }
        stage('Run Test'){
@@ -260,6 +266,7 @@ pipeline {
                         }
                         steps{
                              echo "Step to run C test parallelly on 6 boards"
+                             executeOnBoards()
                         }
                     }
                     stage("Run GT Test") {
@@ -271,6 +278,7 @@ pipeline {
                         }
                         steps {
                               echo "Step to run G test parallelly on 6 boards"
+                              executeOnBoards()
                         }   
                     }
                     stage("Run C_V Test") {
@@ -282,6 +290,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run C_V test parallelly on 6 boards"
+                             executeOnBoards()
                         }   
                     }
                     stage("Run C_GSI Test") {
@@ -293,6 +302,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run C_GSI test parallelly on 6 boards"
+                             executeOnBoards()
                         }   
                     }
                     stage("Run ST") {
@@ -304,6 +314,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run ST test parallelly on 6 boards"
+                             executeOnBoards()
                         }   
                     }
                     stage("Run VT") {
@@ -315,6 +326,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run V test parallelly on 6 boards"
+                             executeOnBoards()
                         }   
                     }
                }
@@ -323,6 +335,7 @@ pipeline {
             agent any
             steps {
                 echo "Stage to grab and collect the report..."
+                executeOnBoards()
             }
         }
     }
