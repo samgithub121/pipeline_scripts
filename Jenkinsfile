@@ -1,8 +1,6 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
 def executeOnBoards() {
-    stages {
-        parallel{
             stage("B1") {
                 echo "Trigger test on B1"
             }
@@ -21,8 +19,6 @@ def executeOnBoards() {
             stage("B6") {
                 echo "Trigger test on B6"
             }
-       }
-    }
 }
 
 def boardInput
