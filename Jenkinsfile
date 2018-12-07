@@ -1,74 +1,50 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
 def executeOnBoards(String boardInput) {
-    pipeline{
-           agent none
-           parallel{
-                    stage("B1") {
-                        agent any
-                        when {
-                            expression { boardInput.contains("B1") }
-                        }
-                        steps{
-                             echo "B1 started running"
-                        }
+       parallel B1: {
+              if (boardInput.contains("B1")){      
+                    stage ('B1') 
+                    {
+                         echo "B1 running"
                     }
-                    stage("B2") {
-                        agent any
-                        when {
-                            expression { boardInput.contains("B2") }
-                        }
-                        steps{
-                             echo "B2 started running"
-                        }
+              }
+        }, B2: {
+             if (boardInput.contains("B2")){      
+                    stage ('B2') 
+                    {
+                         echo "B2 running"
                     }
-           }
+             }
+        }, B3: {
+              if (boardInput.contains("B3")){    
+                    stage ('B3') 
+                    {
+                         echo "B3 running"
+                    }
+              }
+        }, B4: {
+               if (boardInput.contains("B4")){     
+                    stage ('B4') 
+                    {
+                        echo "B4 running"
+                    }
+               }
+        }, B5: {
+                if (boardInput.contains("B5")){    
+                    stage ('B5') 
+                    {
+                        echo "B5 running"
+                    }
+                }
+        }, B6: {
+               if (boardInput.contains("B6")){      
+                    stage ('B6') 
+                    {
+                        echo "B6 running"
+                    }
+               }
+        }
     }
-}
-   /* parallel B1: {
-          if (boardInput.contains("B1")){      
-                stage ('B1') 
-                {
-                     echo "B1 running"
-                }
-          }
-    }, B2: {
-         if (boardInput.contains("B2")){      
-                stage ('B2') 
-                {
-                     echo "B2 running"
-                }
-         }
-    }, B3: {
-          if (boardInput.contains("B3")){    
-                stage ('B3') 
-                {
-                     echo "B3 running"
-                }
-          }
-    }, B4: {
-           if (boardInput.contains("B4")){     
-                stage ('B4') 
-                {
-                    echo "B4 running"
-                }
-           }
-    }, B5: {
-            if (boardInput.contains("B5")){    
-                stage ('B5') 
-                {
-                    echo "B5 running"
-                }
-            }
-    }, B6: {
-           if (boardInput.contains("B6")){      
-                stage ('B6') 
-                {
-                    echo "B6 running"
-                }
-           }
-    }
-}*/
 
 def boardInput
 try {
