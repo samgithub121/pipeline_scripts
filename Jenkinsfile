@@ -4,7 +4,12 @@ def executeOnBoards(String boardInput)
 {     
             stage ('B1') 
             {
-                    echo "B1 running"
+                 when {
+                     expression { boardInput.contains("B1") }
+                 }
+                 script{  
+                     echo "B1 running"
+                 }
             }
             stage ('B2') 
             {                
