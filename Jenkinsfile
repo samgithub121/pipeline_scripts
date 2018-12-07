@@ -2,42 +2,67 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 
 def executeOnBoards(String boardInput)
 {
-                 if (boardInput.contains("B1")){    
-                          stage ('B1') 
-                          {
-                               echo "B1 running"
-                          }
-                 }
-                 if (boardInput.contains("B2")){      
-                           stage ('B2') 
-                           {
-                                echo "B2 running"
-                           }
-                 }
-                 if (boardInput.contains("B3")){    
-                           stage ('B3') 
-                           {
-                                echo "B3 running"
-                           }
-                 }
-                 if (boardInput.contains("B4")){     
-                           stage ('B4') 
-                           {
-                               echo "B4 running"
-                           }
-                 }
-                 if (boardInput.contains("B5")){    
-                          stage ('B5') 
-                          {
-                               echo "B5 running"
-                          }
-                 }
-                 if (boardInput.contains("B6")){             
-                          stage ('B6') 
-                          {
-                               echo "B6 running"
-                          }
-                 }
+                     
+            stage ('B1') 
+            {
+                agent any
+                when {
+                    expression { boardInput.contains("B1") }
+                }
+                steps{
+                    echo "B1 running"
+                }
+            }
+            stage ('B2') 
+            {
+                agent any
+                when {
+                    expression { boardInput.contains("B2") }
+                }
+                steps{   
+                   echo "B2 running"
+                }
+            }
+            stage ('B3') 
+            {
+                agent any
+                when {
+                    expression { boardInput.contains("B2") }
+                }              
+                steps{   
+                   echo "B3 running"
+                }
+            }
+            stage ('B4') 
+            {
+                agent any
+                when {
+                    expression { boardInput.contains("B2") }
+                }
+                steps{  
+                     echo "B4 running"
+                }
+            }
+            stage ('B5') 
+            {
+                agent any
+                when {
+                      expression { boardInput.contains("B2") }
+                }
+                steps{
+                     echo "B5 running"
+                }
+            }
+            stage ('B6') 
+            {
+                agent any
+                when {
+                        expression { boardInput.contains("B2") }
+                }
+                steps{
+                   echo "B6 running"
+                }
+            }
 }
 
 def boardInput
