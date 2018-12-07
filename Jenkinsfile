@@ -1,7 +1,9 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
 def executeOnBoards(String boardInput) {
-    parallel{
+    pipeline{
+           agent none
+           parallel{
                     stage("B1") {
                         agent any
                         when {
@@ -20,6 +22,7 @@ def executeOnBoards(String boardInput) {
                              echo "B2 started running"
                         }
                     }
+           }
     }
 }
    /* parallel B1: {
