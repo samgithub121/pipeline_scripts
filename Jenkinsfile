@@ -1,6 +1,17 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
 def executeOnBoards(String boardInput) {
+    parallel{
+                    stage("B1") {
+                        agent any
+                        when {
+                            expression { boardInput.contains("B1") }
+                        }
+                        steps{
+                             echo "B1 started running"
+                        }
+                    }
+    }
     parallel B1: {
           if (boardInput.contains("B1")){      
                 stage ('B1') 
