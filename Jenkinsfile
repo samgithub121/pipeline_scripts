@@ -1,72 +1,31 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
 def executeOnBoards(String boardInput)
-{
-    pipeline {
-    agent none
-    stages {         
+{     
             stage ('B1') 
             {
-                agent any
-                when {
-                    expression { boardInput.contains("B1") }
-                }
-                steps{
                     echo "B1 running"
-                }
             }
             stage ('B2') 
-            {
-                agent any
-                when {
-                    expression { boardInput.contains("B2") }
-                }
-                steps{   
+            {                
                    echo "B2 running"
-                }
             }
             stage ('B3') 
             {
-                agent any
-                when {
-                    expression { boardInput.contains("B2") }
-                }              
-                steps{   
                    echo "B3 running"
-                }
             }
             stage ('B4') 
             {
-                agent any
-                when {
-                    expression { boardInput.contains("B2") }
-                }
-                steps{  
-                     echo "B4 running"
-                }
+                   echo "B4 running"
             }
             stage ('B5') 
             {
-                agent any
-                when {
-                      expression { boardInput.contains("B2") }
-                }
-                steps{
-                     echo "B5 running"
-                }
+                    echo "B5 running"
             }
             stage ('B6') 
             {
-                agent any
-                when {
-                        expression { boardInput.contains("B2") }
-                }
-                steps{
                    echo "B6 running"
-                }
             }
-        }
-    }
 }
 
 def boardInput
