@@ -2,7 +2,9 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 
 def executeOnBoards(String boardInput)
 {
-                     
+    pipeline {
+    agent none
+    stages {         
             stage ('B1') 
             {
                 agent any
@@ -63,6 +65,8 @@ def executeOnBoards(String boardInput)
                    echo "B6 running"
                 }
             }
+        }
+    }
 }
 
 def boardInput
