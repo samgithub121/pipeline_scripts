@@ -2,45 +2,18 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 
 def executeOnBoards(String boardInput)
 {     
-            stage ('B1') 
-            {
-                 when {
-                     expression { boardInput.contains("B1") }
-                 }
-                 script{  
-                     echo "B1 running"
-                 }
-            }
-            stage ('B2') 
-            {                
-                 script{  
-                     echo "B2 running"
-                 }
-            }
-            stage ('B3') 
-            {
-                 script{  
-                     echo "B3 running"
-                 }
-            }
-            stage ('B4') 
-            {
-                 script{  
-                     echo "B4 running"
-                 }
-            }
-            stage ('B5') 
-            {
-                 script{  
-                     echo "B5 running"
-                 }
-            }
-            stage ('B6') 
-            {
-                 script{  
-                     echo "B6 running"
-                 }
-            }
+    parallel firstBranch: 
+    {
+                stage ('B1') 
+                {
+                    echo "B1 running"
+                }
+                }, secondBranch: {
+                stage ('Starting Test2') 
+                {
+                    echo "B2 running"
+                }
+    }
 }
 
 def boardInput
