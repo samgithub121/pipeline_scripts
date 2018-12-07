@@ -10,23 +10,33 @@ def executeOnBoards(String boardInput)
             }
             stage ('B2') 
             {                
-                   echo "B2 running"
+                 script{  
+                     echo "B2 running"
+                 }
             }
             stage ('B3') 
             {
-                   echo "B3 running"
+                 script{  
+                     echo "B3 running"
+                 }
             }
             stage ('B4') 
             {
-                   echo "B4 running"
+                 script{  
+                     echo "B4 running"
+                 }
             }
             stage ('B5') 
             {
-                    echo "B5 running"
+                 script{  
+                     echo "B5 running"
+                 }
             }
             stage ('B6') 
             {
-                   echo "B6 running"
+                 script{  
+                     echo "B6 running"
+                 }
             }
 }
 
