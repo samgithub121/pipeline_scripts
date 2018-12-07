@@ -21,6 +21,7 @@ def executeOnBoards(String boardInput) {
                         }
                     }
     }
+}
    /* parallel B1: {
           if (boardInput.contains("B1")){      
                 stage ('B1') 
