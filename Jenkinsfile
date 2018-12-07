@@ -11,8 +11,17 @@ def executeOnBoards(String boardInput) {
                              echo "B1 started running"
                         }
                     }
+                    stage("B2") {
+                        agent any
+                        when {
+                            expression { boardInput.contains("B2") }
+                        }
+                        steps{
+                             echo "B2 started running"
+                        }
+                    }
     }
-    parallel B1: {
+   /* parallel B1: {
           if (boardInput.contains("B1")){      
                 stage ('B1') 
                 {
@@ -55,7 +64,7 @@ def executeOnBoards(String boardInput) {
                 }
            }
     }
-}
+}*/
 
 def boardInput
 try {
