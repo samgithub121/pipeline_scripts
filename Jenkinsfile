@@ -206,14 +206,35 @@ pipeline {
                   script {
                         if (boardInput.contains("B1")){
                             echo "HSC on  B1"
+                            executeOnBoards("B1", "HSC")
                         }
                         else{
                               if (boardInput.contains("B2")){
                                   echo "HSC on  B2"
+                                  executeOnBoards("B2", "HSC")
                               }
                               else{
                                     if (boardInput.contains("B3")){
                                           echo "HSC on  B3"
+                                          executeOnBoards("B3", "HSC")
+                                    }
+                                    else{
+                                         if (boardInput.contains("B4")){
+                                            echo "HSC on  B4"
+                                            executeOnBoards("B4", "HSC")
+                                         }
+                                         else{
+                                              if (boardInput.contains("B5")){
+                                                echo "HSC on  B5"
+                                                executeOnBoards("B5", "HSC")
+                                              }
+                                              else{
+                                                   if (boardInput.contains("B6")){
+                                                      echo "HSC on  B6"
+                                                      executeOnBoards("B6", "HSC")
+                                                   }
+                                               }
+                                         }
                                     }
                               }
                         }
