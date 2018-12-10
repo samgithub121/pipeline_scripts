@@ -12,6 +12,22 @@ def executeOnBoards(String boardInput)
         if (boardInput.contains("B2"))
         {
            echo "Running on board B2"
+        }, B3: {
+        if (boardInput.contains("B3"))
+        {
+           echo "Running on board B3"
+        }, B4: {
+        if (boardInput.contains("B4"))
+        {
+           echo "Running on board B4"
+        }, B5: {
+        if (boardInput.contains("B5"))
+        {
+           echo "Running on board B5"
+        }, B6: {
+        if (boardInput.contains("B6"))
+        {
+           echo "Running on board B6"
         }
    } 
 }
