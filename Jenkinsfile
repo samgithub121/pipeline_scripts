@@ -4,14 +4,14 @@ def executeOnBoards(String boardInput)
 {     
    parallel (
       if (boardInput.contains("B1")){
-         B1: {
-            echo "B1 board is running"
-         },
+            B1: {
+               echo "B1 board is running"
+         }
       }
       if (boardInput.contains("B2")){
             B2: {
                echo "B2 board is running"
-            },
+            }
       }
       if (boardInput.contains("B3")){
             B3: {
