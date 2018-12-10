@@ -206,11 +206,16 @@ pipeline {
                   script {
                         if (boardInput.contains("B1")){
                             echo "HSC on  B1"
-                            break
                         }
-                        if (boardInput.contains("B2")){
-                            echo "HSC on  B2"
-                            break
+                        else{
+                              if (boardInput.contains("B2")){
+                                  echo "HSC on  B2"
+                              }
+                              else{
+                                    if (boardInput.contains("B3")){
+                                          echo "HSC on  B3"
+                                    }
+                              }
                         }
                   }
             }
