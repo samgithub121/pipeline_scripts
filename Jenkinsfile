@@ -350,8 +350,8 @@ pipeline {
         stage('Grab & Collect Report') {
             agent any
             steps {
-                echo "Stage to grab and collect the report..."
-                executeOnBoards(boardInput, "Grab Report")
+                  echo "Stage to grab and collect the report from the boards : ${boardInput}"
+                  executeOnBoards(boardInput, "Collect Report")
             }
         }
     }
