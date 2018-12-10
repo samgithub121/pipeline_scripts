@@ -203,8 +203,10 @@ pipeline {
                 expression { jobInput.contains("HSC") }
             }
             steps {
-                  if (boardInput.contains("B1")){
-                        echo "Performing HSC on board B1"
+                  script {
+                        if (boardInput.contains("B1")){
+                              echo "Performing HSC on board B1"
+                        }
                   }
             }
         }
