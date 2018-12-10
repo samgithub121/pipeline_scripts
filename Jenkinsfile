@@ -205,7 +205,28 @@ pipeline {
             steps {
                   script {
                         if (boardInput.contains("B1")){
+                              executeOnBoards("B1", "HSC")
                               echo "Performing HSC on board B1"
+                        }
+                        if (boardInput.contains("B2")){
+                              executeOnBoards("B2", "HSC")
+                              echo "Performing HSC on board B2"
+                        }
+                        if (boardInput.contains("B3")){
+                              executeOnBoards("B3", "HSC")
+                              echo "Performing HSC on board B3"
+                        }
+                        if (boardInput.contains("B4")){
+                              executeOnBoards("B4", "HSC")
+                              echo "Performing HSC on board B4"
+                        }
+                        if (boardInput.contains("B5")){
+                              executeOnBoards("B5", "HSC")
+                              echo "Performing HSC on board B5"
+                        }
+                        if (boardInput.contains("B6")){
+                              executeOnBoards("B6", "HSC")
+                              echo "Performing HSC on board B6"
                         }
                   }
             }
