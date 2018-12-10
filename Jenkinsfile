@@ -204,12 +204,12 @@ pipeline {
             }
             steps {
                   script {
-                        switch(boardInput) {
-                          case (boardInput.contains("B1")):
-                            echo "B1----------"
+                        if (boardInput.contains("B1")){
+                            echo "HSC on  B1"
                             break
-                          default:
-                            echo "Default----"
+                        }
+                        if (boardInput.contains("B2")){
+                            echo "HSC on  B2"
                             break
                         }
                   }
