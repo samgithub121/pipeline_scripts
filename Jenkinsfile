@@ -203,7 +203,24 @@ pipeline {
                 expression { jobInput.contains("HSC") }
             }
             steps {
-                echo "Stage to perform HSC"
+                  if (boardInput.contains("B1")){
+                        echo "Performing HSC on board B1"
+                  }
+                  if (boardInput.contains("B2")){
+                        echo "Performing HSC on board B2"
+                  }
+                  if (boardInput.contains("B3")){
+                        echo "Performing HSC on board B3"
+                  }
+                  if (boardInput.contains("B4")){
+                        echo "Performing HSC on board B4"
+                  }
+                  if (boardInput.contains("B5")){
+                        echo "Performing HSC on board B5"
+                  }
+                  if (boardInput.contains("B6")){
+                        echo "Performing HSC on board B6"
+                  }
             }
         }
         stage('Rbt') {
