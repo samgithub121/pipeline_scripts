@@ -3,22 +3,22 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 def executeOnBoards(String boardInput, String message)
 {     
       if (boardInput.contains("B1")){
-            echo "B1 board is running for job ${message}"
+            echo "B1 board is running for job : ${message}"
       }
       if (boardInput.contains("B2")){
-               echo "B2 board is running for job ${message}"
+               echo "B2 board is running for job : ${message}"
       }
       if (boardInput.contains("B3")){
-               echo "B3 board is running for job ${message}"
+               echo "B3 board is running for job : ${message}"
       }
       if (boardInput.contains("B4")){
-               echo "B4 board is running for job ${message}"
+               echo "B4 board is running for job : ${message}"
       }
       if (boardInput.contains("B5")){
-               echo "B5 board is running for job ${message}"
+               echo "B5 board is running for job : ${message}"
       }
       if (boardInput.contains("B6")){
-               echo "B6 board is running for job ${message}"
+               echo "B6 board is running for job : ${message}"
       }
 }
 
@@ -281,7 +281,7 @@ pipeline {
                             expression { toolInput.contains("CT") }
                         }
                         steps{
-                             echo "Step to run C test parallelly on 6 boards"
+                              echo "Step to run C test parallelly on ${boardInput} boards"
                              executeOnBoards(boardInput, "CT")
                         }
                     }
@@ -293,7 +293,7 @@ pipeline {
                             expression { toolInput.contains("GT") }
                         }
                         steps {
-                              echo "Step to run G test parallelly on 6 boards"
+                              echo "Step to run G test parallelly on ${boardInput} boards"
                               executeOnBoards(boardInput, "GT")
                         }   
                     }
@@ -305,7 +305,7 @@ pipeline {
                             expression { toolInput.contains("C_V") }
                         }
                         steps {
-                             echo "Step to run C_V test parallelly on 6 boards"
+                             echo "Step to run C_V test parallelly on ${boardInput} boards"
                              executeOnBoards(boardInput, "C_V")
                         }   
                     }
@@ -317,7 +317,7 @@ pipeline {
                             expression { toolInput.contains("C_GSI") }
                         }
                         steps {
-                             echo "Step to run C_GSI test parallelly on 6 boards"
+                             echo "Step to run C_GSI test parallelly on ${boardInput} boards"
                              executeOnBoards(boardInput, "C_GSI")
                         }   
                     }
@@ -329,7 +329,7 @@ pipeline {
                             expression { toolInput.contains("ST") }
                         }
                         steps {
-                             echo "Step to run ST test parallelly on 6 boards"
+                             echo "Step to run ST test parallelly on ${boardInput} boards"
                              executeOnBoards(boardInput, "ST")
                         }   
                     }
@@ -341,7 +341,7 @@ pipeline {
                             expression { toolInput.contains("VT") }
                         }
                         steps {
-                             echo "Step to run V test parallelly on 6 boards"
+                             echo "Step to run V test parallelly on ${boardInput} boards"
                              executeOnBoards(boardInput, "VT")
                         }   
                     }
