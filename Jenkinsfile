@@ -3,16 +3,22 @@ import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoicePara
 def executeOnBoards(String boardInput)
 {     
    parallel (
-   B1: {
-      echo "B1 board is running"
-   },
-   B2: {
-      echo "B2 board is running"
-   },
-   B3: {
-      echo "B3 board is running"
-   }
-  )
+      if (boardInput.contains("B1")){
+         B1: {
+            echo "B1 board is running"
+         },
+      }
+      if (boardInput.contains("B2")){
+            B2: {
+               echo "B2 board is running"
+            },
+      }
+      if (boardInput.contains("B3")){
+            B3: {
+               echo "B3 board is running"
+            }
+      }
+   )
 }
 
 def boardInput
