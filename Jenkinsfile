@@ -144,6 +144,47 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Tools",
     echo "Aborted by"
 }
 
+/*---------------------Section To Select The Pkg Type----------------------------- */
+def pkgInput
+try {
+def multiSelect= new ExtendedChoiceParameterDefinition("Select the Pkg", 
+            "PT_MULTI_SELECT", 
+            "spkg,mpkg,acc", 
+            "project name",
+            "", 
+            "",
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "spkg,mpkg,acc", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            "", 
+            false,
+            false, 
+            6, 
+            "multiselect", 
+            ",") 
+
+   pkgInput = input  id: 'customID', message: 'Kindly select the pkg type needed to run?', ok: 'Proceed', parameters:  [multiSelect]
+   echo "Tool Input datas - >" +pkgInput
+}catch(err) { // input false
+    echo "Aborted by"
+}
+
 
 pipeline {
     agent none
