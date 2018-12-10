@@ -1,24 +1,24 @@
 import com.cwctravel.hudson.plugins.extended_choice_parameter.ExtendedChoiceParameterDefinition
 
-def executeOnBoards(String boardInput)
+def executeOnBoards(String boardInput, String message)
 {     
       if (boardInput.contains("B1")){
-               echo "B1 board is running"
+            echo "B1 board is running for job ${message}"
       }
       if (boardInput.contains("B2")){
-               echo "B2 board is running"
+               echo "B2 board is running for job ${message}"
       }
       if (boardInput.contains("B3")){
-               echo "B3 board is running"
+               echo "B3 board is running for job ${message}"
       }
       if (boardInput.contains("B4")){
-               echo "B4 board is running"
+               echo "B4 board is running for job ${message}"
       }
       if (boardInput.contains("B5")){
-               echo "B5 board is running"
+               echo "B5 board is running for job ${message}"
       }
       if (boardInput.contains("B6")){
-               echo "B6 board is running"
+               echo "B6 board is running for job ${message}"
       }
 }
 
@@ -155,7 +155,7 @@ pipeline {
           }
           steps {
                echo "Fl Blr....."
-               executeOnBoards(boardInput)
+               executeOnBoards(boardInput,"Fl Blr")
           }
         }
         stage('D Pkg') {
@@ -174,7 +174,7 @@ pipeline {
             }
             steps {
                 echo "Stage to Fl Pkg"
-                executeOnBoards(boardInput)
+                executeOnBoards(boardInput, "Fl Pkg")
             }
         }
        stage('E Adb') {
@@ -184,7 +184,7 @@ pipeline {
             }
             steps {
                 echo "Stage to E Adb"
-                executeOnBoards(boardInput)
+                executeOnBoards(boardInput, "E Adb")
             }
         }
        stage('Ini Set') {
@@ -194,7 +194,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Ini Set"
-                executeOnBoards(boardInput)
+                executeOnBoards(boardInput, "Ini Set")
             }
         }
        stage('HSC') {
@@ -213,7 +213,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Rbt"
-                executeOnBoards(boardInput)
+                executeOnBoards(boardInput, "Rbt")
             }
         }
         stage('Ftry Rst') {
@@ -223,7 +223,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform Ftry Rst"
-                executeOnBoards(boardInput)
+                executeOnBoards(boardInput, "Ftry Rst")
             }
         }
         stage('W Eep') {
@@ -233,7 +233,7 @@ pipeline {
             }
             steps {
                 echo "Stage to perform - W Eep"
-                executeOnBoards(boardInput)
+                executeOnBoards(boardInput, "W Eep")
             }
         }
        stage('Run Test'){
@@ -247,7 +247,7 @@ pipeline {
                         }
                         steps{
                              echo "Step to run C test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards(boardInput, "CT")
                         }
                     }
                     stage("Run GT Test") {
@@ -259,7 +259,7 @@ pipeline {
                         }
                         steps {
                               echo "Step to run G test parallelly on 6 boards"
-                              executeOnBoards(boardInput)
+                              executeOnBoards(boardInput, "GT")
                         }   
                     }
                     stage("Run C_V Test") {
@@ -271,7 +271,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run C_V test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards(boardInput, "C_V")
                         }   
                     }
                     stage("Run C_GSI Test") {
@@ -283,7 +283,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run C_GSI test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards(boardInput, "C_GSI")
                         }   
                     }
                     stage("Run ST") {
@@ -295,7 +295,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run ST test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards(boardInput, "ST")
                         }   
                     }
                     stage("Run VT") {
@@ -307,7 +307,7 @@ pipeline {
                         }
                         steps {
                              echo "Step to run V test parallelly on 6 boards"
-                             executeOnBoards(boardInput)
+                             executeOnBoards(boardInput, "VT")
                         }   
                     }
                }
@@ -316,7 +316,7 @@ pipeline {
             agent any
             steps {
                 echo "Stage to grab and collect the report..."
-                executeOnBoards(boardInput)
+                executeOnBoards(boardInput, "Grab Report")
             }
         }
     }
