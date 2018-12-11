@@ -282,36 +282,6 @@ pipeline {
                   }
             }
         }
-        stage('Rbt') {
-            agent any
-            when {
-                expression { jobInput.contains("Rbt") }
-            }
-            steps {
-                echo "Stage to perform Rbt"
-                executeOnBoards(boardInput, "Rbt")
-            }
-        }
-        stage('Ftry Rst') {
-            agent any
-            when {
-                expression { jobInput.contains("Ftry Rst") }
-            }
-            steps {
-                echo "Stage to perform Ftry Rst"
-                executeOnBoards(boardInput, "Ftry Rst")
-            }
-        }
-        stage('W Eep') {
-            agent any
-            when {
-                expression { jobInput.contains("W Eep") }
-            }
-            steps {
-                echo "Stage to perform - W Eep"
-                executeOnBoards(boardInput, "W Eep")
-            }
-        }
        stage('Run Test'){
                 parallel{
                     stage("Run CT Test") {
@@ -393,6 +363,36 @@ pipeline {
             steps {
                   echo "Stage to grab and collect the report from the boards : ${boardInput}"
                   executeOnBoards(boardInput, "Collect Report")
+            }
+        }
+        stage('Rbt') {
+            agent any
+            when {
+                expression { jobInput.contains("Rbt") }
+            }
+            steps {
+                echo "Stage to perform Rbt"
+                executeOnBoards(boardInput, "Rbt")
+            }
+        }
+        stage('Ftry Rst') {
+            agent any
+            when {
+                expression { jobInput.contains("Ftry Rst") }
+            }
+            steps {
+                echo "Stage to perform Ftry Rst"
+                executeOnBoards(boardInput, "Ftry Rst")
+            }
+        }
+        stage('W Eep') {
+            agent any
+            when {
+                expression { jobInput.contains("W Eep") }
+            }
+            steps {
+                echo "Stage to perform - W Eep"
+                executeOnBoards(boardInput, "W Eep")
             }
         }
     }
