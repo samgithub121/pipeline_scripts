@@ -205,7 +205,7 @@ pipeline {
                 expression { jobInput.contains("D Pkg") }
             }
             steps {
-                echo "Stage to D Pkg from Pk Mgr/Bx.."
+                  echo "Stage to D Pkg : ${pkgInput} from Pk Mgr/Bx.."
             }
         }
        stage('Fl Pkg') {
