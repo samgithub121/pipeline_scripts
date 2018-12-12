@@ -195,7 +195,7 @@ pipeline {
              expression { jobInput.contains("Fl Blr") }
           }
           steps {
-               echo "Fl Blr....."
+               echo "Stage to Fl Blr"
                executeOnBoards(boardInput,"Fl Blr")
           }
         }
@@ -292,8 +292,8 @@ pipeline {
                             expression { toolInput.contains("CT") }
                         }
                         steps{
-                              echo "Step to run C test parallelly on ${boardInput} boards"
-                             executeOnBoards(boardInput, "CT")
+                              echo "Step to run CT test parallelly on ${boardInput} boards on sharding basis"
+                              executeOnBoards(boardInput, "CT")
                         }
                     }
                     stage("Run GT Test") {
@@ -304,7 +304,7 @@ pipeline {
                             expression { toolInput.contains("GT") }
                         }
                         steps {
-                              echo "Step to run G test parallelly on ${boardInput} boards"
+                              echo "Step to run GT test parallelly on ${boardInput} boards"
                               executeOnBoards(boardInput, "GT")
                         }   
                     }
@@ -328,7 +328,7 @@ pipeline {
                             expression { toolInput.contains("C_GSI") }
                         }
                         steps {
-                             echo "Step to run C_GSI test parallelly on ${boardInput} boards"
+                             echo "Step to run C_GSI test parallelly on ${boardInput} boards on sharding basis"
                              executeOnBoards(boardInput, "C_GSI")
                         }   
                     }
@@ -362,6 +362,9 @@ pipeline {
             agent any
             steps {
                   echo "Stage to grab and collect the report from the boards : ${boardInput}"
+                  echo "Collected the reports for the tests : ${toolInput}"
+                  echo "Run the stage for excel report generation"
+                  echo "Push the data to the dashboard"
                   executeOnBoards(boardInput, "Collect Report")
             }
         }
