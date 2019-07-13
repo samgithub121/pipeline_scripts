@@ -185,7 +185,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Pkg",
     echo "Aborted by"
 }
 
-@Library('utils') _
+@Library('my-shared-library') _
 pipeline {
     agent none
     stages {
