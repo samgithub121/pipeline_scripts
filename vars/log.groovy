@@ -1,7 +1,7 @@
 def info(message) {
-    echo "INFO: This is an info section"
+    echo "INFO: ${message}"
 }
 
 def warning(message) {
-    echo "WARNING: This is a warning section"
+    echo "WARNING: ${message}"
 }
