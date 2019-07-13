@@ -285,9 +285,7 @@ pipeline {
        stage('Run Test'){
                 parallel{
                     stage("Run CT Test") {
-                        agent {
-                             docker {image 'ubuntu'}
-                        }
+                        agent any
                         when {
                             expression { toolInput.contains("CT") }
                         }
@@ -297,9 +295,7 @@ pipeline {
                         }
                     }
                     stage("Run GT Test") {
-                        agent {
-                             docker {image 'ubuntu'}
-                        }
+                        agent any
                         when {
                             expression { toolInput.contains("GT") }
                         }
@@ -309,9 +305,7 @@ pipeline {
                         }   
                     }
                     stage("Run C_V Test") {
-                        agent {
-                             docker {image 'ubuntu'}
-                        }
+                        agent any
                         when {
                             expression { toolInput.contains("C_V") }
                         }
@@ -321,9 +315,7 @@ pipeline {
                         }   
                     }
                     stage("Run C_GSI Test") {
-                        agent {
-                             docker {image 'ubuntu'}
-                        }
+                        agent any
                         when {
                             expression { toolInput.contains("C_GSI") }
                         }
@@ -333,9 +325,7 @@ pipeline {
                         }   
                     }
                     stage("Run ST") {
-                        agent {
-                             docker {image 'ubuntu'}
-                        }
+                        agent any
                         when {
                             expression { toolInput.contains("ST") }
                         }
@@ -345,9 +335,7 @@ pipeline {
                         }   
                     }
                     stage("Run VT") {
-                        agent {
-                             docker {image 'ubuntu'}
-                        }
+                        agent any
                         when {
                             expression { toolInput.contains("VT") }
                         }
