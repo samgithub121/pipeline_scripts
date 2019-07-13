@@ -185,7 +185,7 @@ def multiSelect= new ExtendedChoiceParameterDefinition("Select the Pkg",
     echo "Aborted by"
 }
 
-
+@Library('utils') _
 pipeline {
     agent none
     stages {
@@ -197,6 +197,10 @@ pipeline {
           steps {
                echo "Stage to Fl Blr"
                executeOnBoards(boardInput,"Fl Blr")
+               script {
+                     log.info 'Starting'
+                     log.warning 'Nothing to do!'
+               }
           }
         }
         stage('D Pkg') {
