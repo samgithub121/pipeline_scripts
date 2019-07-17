@@ -5,26 +5,26 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build the application package"
-                buildApp()
+                buildApp(this)
             }
         }
         stage('Install') {
             steps {
                 echo "Install package to device"
-                installApp()
+                installApp(this)
             }
         }
         stage('Test') {
             steps {
                 echo "Execute automated tests"
-                testApp()
+                testApp(this)
             }
         }
     }
     post { 
         success { 
             echo "Deploy the package if tests are passed"
-            deployApp()
+            deployApp(this)
         }
     }
 }
