@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Build the application package"
+                build()
             }
         }
         stage('Install') {
