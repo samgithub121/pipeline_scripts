@@ -1,3 +1,3 @@
-def call(script){
+def call(){
     steps.echo "Install application"
 }
