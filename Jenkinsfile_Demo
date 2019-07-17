@@ -1,0 +1,26 @@
+@Library('my-shared-library') _
+pipeline {
+    agent any
+    stages {
+        stage('Build') {
+            steps {
+                echo "Build the application package"
+            }
+        }
+        stage('Install') {
+            steps {
+                echo "Install package to device"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Execute automated tests"
+            }
+        }
+    }
+    post { 
+        success { 
+            echo "Deploy the package if tests are passed"
+        }
+    }
+}
